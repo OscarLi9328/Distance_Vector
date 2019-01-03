@@ -13,6 +13,7 @@ Each node will send its own table to its neighboring nodes and receive the table
 **3. Implementation**
 I use python to implement this lab assignment. I initialized each entry of the cost table as , which is represented by 999. Initialize two arrays, one for recording the link cost, the other for recording the cost the one node.
       ![Alt text](https://github.com/OscarLi9328/Distance_Vector/blob/master/initialization.png?raw=true "Optional Title")
+      
 The basic idea of how to implement the algorithm is shown in Figure 2. During the initialization process, the diagonal of the table will be the link cost to each neighboring node. Before the initial table is sent to neighbor nodes, it has to be wrapped into packets. The initialization process of each node is referenced as rtinit( ) in my codes. 
 After initialization, the next process, rtupdate( ), is to update the table. The routine takes the received vector and recalculate the cost to the node who sends the vector. 
 The updating rule is to find the minimum value between the new and old values. The old values are the original value that the node maintain. The new value is calculated by taking the cost to a neighbor and added with the corresponding entry of the received vector. If the table values change, send to its neighbors. 
